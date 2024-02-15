@@ -7,6 +7,12 @@ public class RssFetcher {
 
 	public RssFetcher() {
 		Feeds = new Dictionary<string, IEnumerable<PostData>>();
+
+		if (!File.Exists(FeedsPath)) {
+			File.Create(FeedsPath);
+			Console.WriteLine($"A feed container file has been created at: {FeedsPath}");
+			return;
+		}
 		
 		using StreamReader reader = new(FeedsPath);
 		string? feedUrl = reader.ReadLine();
