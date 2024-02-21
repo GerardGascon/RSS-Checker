@@ -8,6 +8,6 @@ public static class PostDataBridge {
 		if (item.PublishDate > lastUpdated)
 			lastUpdated = item.PublishDate;
 
-		return new PostData(item.Title.Text, lastUpdated, item.Summary.Text);
+		return new PostData(item.Title.Text, lastUpdated, item.Summary.Text, item.Links[0].Uri.ToString());
 	}
 }
